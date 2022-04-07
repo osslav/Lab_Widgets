@@ -17,7 +17,10 @@ class WidgetSquaring : public QWidget
 
 public:
     WidgetSquaring(QWidget *parent = nullptr);
-    ~WidgetSquaring();
+    ~WidgetSquaring() {}
+
+public slots:
+    void reset();
 
 private:
     QFrame *frame;

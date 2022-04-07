@@ -8,7 +8,7 @@ WidgetSquaring::WidgetSquaring(QWidget *parent)
 
     frame = new QFrame(this);
     frame->setFrameShadow(QFrame::Raised);
-    frame->setFrameShape(QFrame::Box);//Panel);
+    frame->setFrameShape(QFrame::Panel);
 
     inputTitle = new QLabel("Enter number:", this);
     inputEdit = new QLineEdit("",this);
@@ -34,10 +34,24 @@ WidgetSquaring::WidgetSquaring(QWidget *parent)
     QHBoxLayout *hLayoutGeneral = new QHBoxLayout(this);
     hLayoutGeneral->addWidget(frame);
     hLayoutGeneral->addLayout(vLayoutForButtons);
+
+    reset();
 }
 
-WidgetSquaring::~WidgetSquaring()
+void WidgetSquaring::reset()
 {
+    nextButton->setEnabled(false);
+    nextButton->setDefault(false);
 
+    inputEdit->clear();
+    inputEdit->setEnabled(true);
+
+    outputTitle->setVisible(false);
+
+    outputEdit->setVisible(false);
+    outputEdit->setEnabled(false);
+
+    inputEdit->setFocus();
 }
+
 
