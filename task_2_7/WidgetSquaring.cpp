@@ -1,5 +1,6 @@
 #include "WidgetSquaring.h"
 #include <QBoxLayout>
+#include <QMessageBox>
 
 WidgetSquaring::WidgetSquaring(QWidget *parent)
     : QWidget(parent)
@@ -54,4 +55,33 @@ void WidgetSquaring::reset()
     inputEdit->setFocus();
 }
 
+double WidgetSquaring::squaring(double input)
+{
+    return input*input;
+}
 
+void WidgetSquaring::calculate()
+{
+    bool isNumberFoundCorrect = true;
+    double resultNumber, inputNumber;
+    QString str=inputEdit->text();
+    inputNumber = str.toDouble(&isNumberFoundCorrect);
+    if (isNumberFoundCorrect)
+    {
+        resultNumber = squaring(inputNumber);
+        str.setNum(resultNumber);
+        outputEdit->setText(str);
+        inputEdit->setEnabled(false);
+        outputTitle->setVisible(true);
+        outputEdit->setVisible(true);
+        nextButton->setDefault(true);
+        nextButton->setEnabled(true);
+        nextButton->setFocus();
+    }
+    else
+        if (!str.isEmpty())
+        {
+            QMessageBox msgBox(QMessageBox::Information, "Squaring a number", "Invalid value entered.", QMessageBox::Ok);
+            msgBox.exec();
+        }
+}

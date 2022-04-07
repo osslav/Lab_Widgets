@@ -21,6 +21,7 @@ public:
 
 public slots:
     void reset();
+    void calculate();
 
 private:
     QFrame *frame;
@@ -34,5 +35,6 @@ private:
     QPushButton *nextButton;
     QPushButton *exitButton;
 
+    double squaring(double input);
 };
 #endif // MAINWINDOW_H
