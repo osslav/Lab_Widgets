@@ -37,6 +37,10 @@ WidgetSquaring::WidgetSquaring(QWidget *parent)
     hLayoutGeneral->addLayout(vLayoutForButtons);
 
     reset();
+
+    connect(exitButton,SIGNAL(clicked(bool)), this,SLOT(close()));
+    connect(nextButton,SIGNAL(clicked(bool)), this,SLOT(reset()));
+    connect(inputEdit,SIGNAL(returnPressed()), this,SLOT(calculate()));
 }
 
 void WidgetSquaring::reset()
