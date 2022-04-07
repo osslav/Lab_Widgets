@@ -2,6 +2,10 @@
 #define WIDGETSQUARING_H
 
 #include <QWidget>
+#include <QFrame>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class WidgetSquaring; }
@@ -16,6 +20,16 @@ public:
     ~WidgetSquaring();
 
 private:
+    QFrame *frame;
+
+    QLabel *inputTitle;
+    QLineEdit *inputEdit;
+
+    QLabel *outputTitle;
+    QLineEdit *outputEdit;
+
+    QPushButton *nextButton;
+    QPushButton *exitButton;
 
 };
 #endif // MAINWINDOW_H
