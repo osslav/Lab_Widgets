@@ -1,41 +1,41 @@
 #ifndef WIDGETSQUARING_H
 #define WIDGETSQUARING_H
 
-#include <QWidget>
+#include <QWidget>                                  //подключение необходимых библиотек
 #include <QFrame>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 
-QT_BEGIN_NAMESPACE
+QT_BEGIN_NAMESPACE                                  //пространство имен для реализуемого виджета
 namespace Ui { class WidgetSquaring; }
 QT_END_NAMESPACE
 
-class WidgetSquaring : public QWidget
-{
-    Q_OBJECT
+class WidgetSquaring : public QWidget               //виджет для вычисления квадрата числа
+{                                                   //сделан наследником QWidget, поскольку наследование от QMainWindow здесь не требуется(его доп возможности не используются)
+    Q_OBJECT                                        //макрос для подключения сигналов и слотов к классу
 
 public:
-    WidgetSquaring(QWidget *parent = nullptr);
-    ~WidgetSquaring() {}
+    WidgetSquaring(QWidget *parent = nullptr);      //конструктор
+    ~WidgetSquaring() {}                            //деструктор
 
-public slots:
-    void reset();
-    void calculate();
+public slots:                                       //слоты:
+    void reset();                                   //слот для очитки виджета и подготовки его к новому вычислению
+    void calculate();                               //слот для вычисления
 
 private:
-    QFrame *frame;
+    QFrame *frame;                                  //рамка(используется на виджете, требуется по заданию)
 
-    QLabel *inputTitle;
-    QLineEdit *inputEdit;
+    QLabel *inputTitle;                             //заголовок над строкой для ввода
+    QLineEdit *inputEdit;                           //строка ввода
 
-    QLabel *outputTitle;
-    QLineEdit *outputEdit;
+    QLabel *outputTitle;                            //заголовок над строкой вывода
+    QLineEdit *outputEdit;                          //строка вывода
 
-    QPushButton *nextButton;
-    QPushButton *exitButton;
+    QPushButton *nextButton;                        //кнопка для очистки виджета от предыдущей операции
+    QPushButton *exitButton;                        //кнопка закрытия виджета
 
-    double squaring(double input);
+    double squaring(double input);                  //функция возведения в квадрат числа
 };
 
 #endif
