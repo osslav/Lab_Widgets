@@ -37,4 +37,5 @@ private:
 
     double squaring(double input);
 };
-#endif // MAINWINDOW_H
+
+#endif

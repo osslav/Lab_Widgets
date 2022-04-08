@@ -1,24 +1,27 @@
 #include "WidgetSquaring.h"
 #include <QBoxLayout>
 #include <QMessageBox>
+#include <QTextCodec>
 
 WidgetSquaring::WidgetSquaring(QWidget *parent)
     : QWidget(parent)
 {
-    setWindowTitle("Squaring a number");
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("Windows-1251"));
+
+    setWindowTitle("Возведение в квадрат");
 
     frame = new QFrame(this);
     frame->setFrameShadow(QFrame::Raised);
     frame->setFrameShape(QFrame::Panel);
 
-    inputTitle = new QLabel("Enter number:", this);
+    inputTitle = new QLabel("Введите число:", this);
     inputEdit = new QLineEdit("",this);
 
-    outputTitle = new QLabel("Result:", this);
+    outputTitle = new QLabel("Результат:", this);
     outputEdit = new QLineEdit("",this);
 
-    nextButton = new QPushButton("Next", this);
-    exitButton = new QPushButton("Exit", this);
+    nextButton = new QPushButton("Следующее", this);
+    exitButton = new QPushButton("Выход", this);
 
     QVBoxLayout *vLayoutForNumbers = new QVBoxLayout(frame);
     vLayoutForNumbers->addWidget(inputTitle);
@@ -85,7 +88,7 @@ void WidgetSquaring::calculate()
     else
         if (!str.isEmpty())
         {
-            QMessageBox msgBox(QMessageBox::Information, "Squaring a number", "Invalid value entered.", QMessageBox::Ok);
+            QMessageBox msgBox(QMessageBox::Information, "Возведение в квадрат", "Ошибка! В строке ввода найдены некорретные симолы", QMessageBox::Ok);
             msgBox.exec();
         }
 }
