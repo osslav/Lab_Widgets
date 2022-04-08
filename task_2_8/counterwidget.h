@@ -2,6 +2,22 @@
 #define COUNTERWIDGET_H
 
 #include <QWidget>
+#include <QLineEdit>
+
+class CounterLine:public QLineEdit
+{
+    Q_OBJECT
+public:
+    CounterLine(const QString & contents, QWidget *parent=0):
+    QLineEdit(contents,parent){}
+
+signals:
+    void multipleFiveSignal();
+
+public slots:
+    void addOne();
+
+};
 
 class CounterWidget : public QWidget
 {
