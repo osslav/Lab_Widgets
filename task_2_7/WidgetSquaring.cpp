@@ -17,6 +17,9 @@ WidgetSquaring::WidgetSquaring(QWidget *parent)                                 
     inputTitle = new QLabel("Введите число:", this);                                //создание заголовка над строкой ввода
     inputEdit = new QLineEdit("",this);                                             //создание строки ввода
 
+    StrValidator *v=new StrValidator(inputEdit);                                    //создание объекта проверки ввода для строки ввода
+    inputEdit->setValidator(v);                                                     //подключение его к сроке ввода
+
     outputTitle = new QLabel("Результат:", this);                                   //создание заголовка над строкой вывода
     outputEdit = new QLineEdit("",this);                                            //создание строки вывода
 

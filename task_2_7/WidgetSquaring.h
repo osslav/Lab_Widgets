@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QValidator>
 
 QT_BEGIN_NAMESPACE                                  //пространство имен для реализуемого виджета
 namespace Ui { class WidgetSquaring; }
@@ -36,6 +37,17 @@ private:
     QPushButton *exitButton;                        //кнопка закрытия виджета
 
     double squaring(double input);                  //функция возведения в квадрат числа
+};
+
+class StrValidator:public QValidator                // класс компонента проверки ввода
+{
+    public:
+    StrValidator(QObject *parent):QValidator(parent){}
+
+    virtual State validate(QString &str,int &pos)const      //определение виртуальной функции проверки ввода
+    {
+        return Acceptable;                          // метод всегда принимает вводимую строку
+    }
 };
 
 #endif
