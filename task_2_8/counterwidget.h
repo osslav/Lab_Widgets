@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QLineEdit>
+#include <QLabel>
+#include <QPushButton>
 
 class CounterLine:public QLineEdit
 {
@@ -25,6 +27,11 @@ class CounterWidget : public QWidget
 
 public:
     CounterWidget(QWidget *parent = nullptr);
-    ~CounterWidget();
+
+private:
+    QLabel *labelCount,*labelCountByFive;
+    CounterLine *lineCount,*lineCountByFive;
+    QPushButton *addOneButton;
+    QPushButton *exitButton;
 };
 #endif // COUNTERWIDGET_H
