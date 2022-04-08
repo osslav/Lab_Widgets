@@ -18,4 +18,21 @@ public:
     void move(float Alpha,QPainter *Painter);   //функция движения фигуры(изменения угла наклона)
 };
 
+class MyLine:public Figura                      //класс линии, использует класс Figura как интерфейс
+{
+protected:
+    void draw(QPainter *Painter);               //объявление для определения чистой виртуальной функции draw из Figura
+public:
+    MyLine(int x,int y,int halflen):Figura(x,y,halflen){}       //конструктор(использует родительский конструктор)
+};
+
+//аналогично задается класс:
+class MyRect:public Figura                      //класс прямоугольника, использует класс Figura как интерфейс
+{
+protected:
+    void draw(QPainter *Painter);               //объявление для определения чистой виртуальной функции draw из Figura
+public:
+    MyRect(int x,int y,int halflen):Figura(x,y,halflen){}        //конструктор(использует родительский конструктор)
+};
+
 #endif // FIGURA_H
