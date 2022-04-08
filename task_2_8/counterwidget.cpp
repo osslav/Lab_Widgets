@@ -46,6 +46,10 @@ CounterWidget::CounterWidget(QWidget *parent)
      mainLayout->addLayout(hLayoutOutputLines);
      mainLayout->addLayout(hLayoutButtons);
      mainLayout->addStretch();
+
+     connect(addOneButton,SIGNAL(clicked(bool)), lineCount,SLOT(addOne()));
+     connect(lineCount,SIGNAL(multipleFiveSignal()), lineCountByFive,SLOT(addOne()));
+     connect(exitButton,SIGNAL(clicked(bool)), this,SLOT(close()));
 }
 
 
