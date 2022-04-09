@@ -3,7 +3,7 @@
 
 #include <QPainter>
 
-class Figura                                    //абстрактный класс, является интерфейсом для создания фигур
+class Figura                                    //абстрактный класс, используется как родитель для создания конкретных фигур
 {
 protected:
     int x,y;                                    //координаты расположения центра фигуры
@@ -18,7 +18,7 @@ public:
     void move(float Alpha,QPainter *Painter);   //функция движения фигуры(изменения угла наклона)
 };
 
-class MyLine:public Figura                      //класс линии, использует класс Figura как интерфейс
+class MyLine:public Figura                      //класс линии, наследуется от класса Figura
 {
 protected:
     void draw(QPainter *Painter);               //объявление для определения чистой виртуальной функции draw из Figura
@@ -27,7 +27,7 @@ public:
 };
 
 //аналогично задается класс:
-class MyRect:public Figura                      //класс прямоугольника, использует класс Figura как интерфейс
+class MyRect:public Figura                      //класс прямоугольника, наследуется от класса Figura
 {
 protected:
     void draw(QPainter *Painter);               //объявление для определения чистой виртуальной функции draw из Figura
